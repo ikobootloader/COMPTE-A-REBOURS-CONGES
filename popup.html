@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main class="card" aria-live="polite">
+    <button class="gear" id="gear" title="Paramètres" aria-label="Ouvrir les paramètres">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+    </button>
+
+    <!-- Vue compte à rebours -->
+    <section id="view-count">
+      <p class="eyebrow">Objectif congés</p>
+      <h1 class="target" id="target">—</h1>
+
+      <div class="grid" id="grid">
+        <div class="cell"><span class="num" id="days">0</span><span class="lbl">jours</span></div>
+        <div class="cell"><span class="num" id="hours">00</span><span class="lbl">heures</span></div>
+        <div class="cell"><span class="num" id="mins">00</span><span class="lbl">min</span></div>
+        <div class="cell"><span class="num" id="secs">00</span><span class="lbl">sec</span></div>
+      </div>
+
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="bar">
+        <div class="fill" id="fill"></div>
+      </div>
+
+      <p class="status">
+        <span class="pct" id="pct">0&nbsp;%</span>
+        <span class="msg" id="msg">du chemin parcouru</span>
+      </p>
+    </section>
+
+    <!-- Vue paramètres -->
+    <section id="view-settings" hidden>
+      <p class="eyebrow">Paramètres</p>
+
+      <label class="field">
+        <span>Date et heure des congés</span>
+        <input type="datetime-local" id="targetInput" />
+      </label>
+
+      <label class="field">
+        <span>Début de la barre (le « 0&nbsp;% »)</span>
+        <input type="date" id="startInput" />
+      </label>
+
+      <p class="hint" id="hint"></p>
+
+      <div class="actions">
+        <button class="btn primary" id="save">Enregistrer</button>
+        <button class="btn" id="cancel">Annuler</button>
+      </div>
+      <button class="link" id="reset">Réinitialiser aux valeurs par défaut</button>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>
